@@ -1,0 +1,39 @@
+$primaryColor: #49bfff;
+
+html body {
+    height:100%;
+    width: 100%;
+    font-size: 1em;
+}
+
+
+body {
+    padding-top:50px;
+    padding-bottom: 20px;
+    $primaryColor:#ccc;
+}
+
+label.btn {
+    background-color:#222;
+    border:1;
+    color:#9d9d9d;
+    padding-left: 12px;
+    @media (max-width: 800px) {
+        padding-left: 0px;
+    }
+}
+
+#title {
+    margin: 50px;
+}
+
+.post-photo {
+    height:250px;
+    width:100%;
+
+}
+
+.post-title {
+    font-size: 1.5em;
+    color: dark-blue;
+}
