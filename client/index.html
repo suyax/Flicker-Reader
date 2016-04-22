@@ -2,19 +2,24 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Flicker Feed</title>
   <link rel="stylesheet" type="text/css" href="styles/bundle.css"/>
 </head>
 <body ng-controller="PostCtrl">
-  <h1 id="title">Flicker Public Feed</h1>
-  <ul class=" post-container"infinite-scroll="post.nextPage()" infinite-scroll-disabled="post.busy" infinite-scroll-distance="1">
-    <li ng-repeat="item in post.posts">
-      <img class="col-md-4 post-photo" ng-src="{{item.photo}}" alt="{{item.title}}">
-      <div class="col-md-8 post-head">
-        <span class="post-title">{{item.title}}</span>
-        <span class="post-date">Published:{{item.date | dateSuffix }}</span>
-        <a class="post-author" ng-href="{{item.authorLink}}" target="_self">{{item.author}}</a>
-        <a class="post-link" ng-href="{{item.link}}" target="_self">View On Flicker</a>
+  <div id="title">Flicker Public Feed</div>
+  <ul class="list-group post-container"infinite-scroll="post.nextPage()" infinite-scroll-disabled="post.busy" infinite-scroll-distance="1">
+    <li class="row list-group-items" ng-repeat="item in post.posts">
+      <img class="thumbnail post-photo" ng-src="{{item.photo}}" alt="{{item.title}}">
+      <div class="post-head">
+        <div class="span4">
+          <span class="post-title hideOverflow">{{item.title}}</span>
+        </div>
+        <span class="row post-date">Published: {{item.date | dateSuffix }}</span>
+        <span class="row">
+          <a class="post-author" ng-href="{{item.authorLink}}" target="_self">Photo Author</a>
+          <a class="post-link" ng-href="{{item.link}}" target="_self">View On Flicker</a>
+        </span>
       </div>
     </li>
     <li ng-show="flicker.busy">Loading ...</li>

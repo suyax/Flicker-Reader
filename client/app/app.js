@@ -6,7 +6,7 @@ myApp.controller('PostCtrl', function ($scope, $filter, Post) {
 myApp.filter('dateSuffix', function($filter) {
   var suffixes = ["th", "st", "nd", "rd"];
   return function(input) {
-    var dtfilter = $filter('date')(input, "dd MMMM 'at' H:mm");
+    var dtfilter = $filter('date')(input, "dd MMM yyyy 'at' H:mm");
     var day = parseInt(dtfilter.slice(0,2));
     var relevantDigits = (day < 30) ? day % 20 : day % 30;
     var suffix = (relevantDigits <= 3) ? suffixes[relevantDigits] : suffixes[0];
